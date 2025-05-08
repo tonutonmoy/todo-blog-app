@@ -8,28 +8,47 @@ const createBlogIntoDB = async (payload: IBlog|any) => {
   return result;
 };
 
-const getAllIntoDB = async () => {
-  const result = await prisma.blog.findMany({
+const getAllIntoDB = async ({ skip, limit }: { skip: number; limit: number }) => {
+  const data = await prisma.blog.findMany({
+    skip,
+    take: limit,
     include: {
       author: true,
       comments: true,
       likes: true,
     },
   });
-  return result;
+
+  const total = await prisma.blog.count();
+
+  return { data, total };
 };
 
-const getSingleIntoDB = async (id: string) => {
+const getSingleIntoDB = async (
+  id: string,
+  { skip, limit }: { skip: number; limit: number }
+) => {
   const result = await prisma.blog.findMany({
     where: { authorId: id },
+    skip,
+    take: limit,
     include: {
       author: true,
       comments: true,
       likes: true,
     },
   });
-  return result;
+
+  const total = await prisma.blog.count({
+    where: { authorId: id },
+  });
+
+  return {
+    data: result,
+    total,
+  };
 };
+
 
 export const BlogServices = {
   createBlogIntoDB,
