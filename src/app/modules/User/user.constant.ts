@@ -211,3 +211,15 @@ export const failedEmailVerificationHTML = (client_server: string) => {
     </html>
         `;
 };
+
+
+export enum UserRoleEnum {
+  ADMIN = 'ADMIN',
+  USER = 'USER',
+}
+
+export enum UserStatus {
+  ACTIVE = 'ACTIVE',
+  INACTIVE = 'INACTIVE',
+  BANNED = 'BANNED',
+}
