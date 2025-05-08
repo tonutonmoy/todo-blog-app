@@ -8,9 +8,7 @@ const createBlog = z.object({
     content: z.string({
       required_error: 'Content is required!',
     }),
-    authorId: z.string({
-      required_error: 'Author ID is required!',
-    }),
+  
   }),
 });
 

@@ -20,8 +20,8 @@ const getAllIntoDB = async () => {
 };
 
 const getSingleIntoDB = async (id: string) => {
-  const result = await prisma.blog.findUnique({
-    where: { id },
+  const result = await prisma.blog.findMany({
+    where: { authorId: id },
     include: {
       author: true,
       comments: true,

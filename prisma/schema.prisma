@@ -133,6 +133,7 @@ model Like {
   blogId  String   @db.ObjectId
   blog    Blog     @relation(fields: [blogId], references: [id])
   userId  String   @db.ObjectId
+  isLike  Boolean  
   user    User     @relation(fields: [userId], references: [id])
 
   @@unique([blogId, userId])

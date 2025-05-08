@@ -1,23 +1,17 @@
 import z from 'zod';
-const registerUser = z.object({
+
+const createLike = z.object({
   body: z.object({
-    firstName: z.string({
-      required_error: 'First Name is required!',
+    blogId: z.string({
+      required_error: 'Blog ID is required!',
     }),
-    lastName: z.string({
-      required_error: 'Last Name is required!',
-    }),
-    email: z
-      .string({
-        required_error: 'Email is required!',
-      })
-      .email({
-        message: 'Invalid email format!',
-      }),
-    password: z.string({
-      required_error: 'Password is required!',
+    
+    isLike: z.boolean({
+      required_error: 'Like boolean is required!',
     }),
   }),
 });
 
-export const UserValidations = { registerUser };
+export const LikeValidations = {
+  createLike,
+};

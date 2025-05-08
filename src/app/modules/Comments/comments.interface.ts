@@ -1,5 +1,5 @@
 import { IBlog } from '../Blogs/blogs.interface';
-import { IUser, IUserFilterRequest } from '../User/user.interface';
+import { IUser } from '../User/user.interface';
 
 
 export interface IComment {

@@ -4,7 +4,7 @@ import { IUser } from '../User/user.interface';
 
 
 export interface IBlog {
-  id: string;
+ 
   title: string;
   content: string;
   authorId: string;
